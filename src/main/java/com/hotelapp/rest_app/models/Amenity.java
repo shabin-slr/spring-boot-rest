@@ -21,7 +21,7 @@ public class Amenity implements Serializable {
 	@Column(name = "amenity_id")
 	private Long id;
 	
-	@Column(name = "short_desc")
+	@Column(name = "short_desc", unique = true)
 	@NotNull
 	private String shortDescription;
 	
