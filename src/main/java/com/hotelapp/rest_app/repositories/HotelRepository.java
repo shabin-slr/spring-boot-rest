@@ -14,4 +14,6 @@ public interface HotelRepository extends PagingAndSortingRepository<Hotel,Long>{
 	
 	Page<Hotel> findByNameContainingAndCityCodeContaining(String name, String cityCode, Pageable pageable);
 
+	Hotel findOneById(Long hotelId);
+
 }

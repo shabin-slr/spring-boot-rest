@@ -16,7 +16,7 @@ import com.hotelapp.rest_app.models.Hotel;
 import com.hotelapp.rest_app.services.HotelService;
 
 @RestController
-public class HotelsController {
+public class HotelController {
 	
 	@Autowired
 	HotelService hotelService;
