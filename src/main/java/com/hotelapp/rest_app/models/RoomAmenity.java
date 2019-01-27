@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -24,15 +27,17 @@ public class RoomAmenity implements Serializable {
 	private Long id;
 	
 	@NotNull
-	@Column(name = "amenity_id")
+	@JoinColumn(name = "amenity_id", nullable = false)
+	@OneToOne
 	private Amenity amenity;
 	
 	@NotNull
-	@Column(name = "room_id")
 	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "hotel_id", nullable = false)
 	private Room room;
 	
-	private Boolean chargeble;
+	private Boolean chargeable;
 	
 	private Double amount;
 
@@ -60,12 +65,12 @@ public class RoomAmenity implements Serializable {
 		this.room = room;
 	}
 
-	public Boolean getChargeble() {
-		return chargeble;
+	public Boolean getChargeable() {
+		return chargeable;
 	}
 
-	public void setChargeble(Boolean chargeble) {
-		this.chargeble = chargeble;
+	public void setChargeable(Boolean chargeable) {
+		this.chargeable = chargeable;
 	}
 
 	public Double getAmount() {

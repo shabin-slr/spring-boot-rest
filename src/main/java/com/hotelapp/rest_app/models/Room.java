@@ -30,13 +30,13 @@ public class Room implements Serializable {
 	
 	@JsonBackReference
 	@ManyToOne
-	@JoinColumn(name = "hotel_id", nullable = false) //, foreignKey = @ForeignKey(name = "FK_HOTEL")
+	@JoinColumn(name = "hotel_id", nullable = false)
 	@NotNull
 	private Hotel hotel;
 	
 	@Transient
 	@JsonManagedReference
-	private Set<RoomAmenity> roomAmenities;
+	private Set<RoomAmenity> amenities;
 	
 	@Column(name="description")
 	private String description;
@@ -65,12 +65,12 @@ public class Room implements Serializable {
 		this.description = description;
 	}
 
-	public Set<RoomAmenity> getRoomAmenities() {
-		return roomAmenities;
+	public Set<RoomAmenity> getAmenities() {
+		return amenities;
 	}
 
-	public void setRoomAmenities(Set<RoomAmenity> roomAmenities) {
-		this.roomAmenities = roomAmenities;
+	public void setAmenities(Set<RoomAmenity> amenities) {
+		this.amenities = amenities;
 	}
 	
 	@Override

@@ -27,7 +27,7 @@ public class HotelAmenity implements Serializable {
 	private Long id;
 	
 	@NotNull
-	@JoinColumn(name = "amenity_id")
+	@JoinColumn(name = "amenity_id", nullable = false)
 	@OneToOne
 	private Amenity amenity;
 	

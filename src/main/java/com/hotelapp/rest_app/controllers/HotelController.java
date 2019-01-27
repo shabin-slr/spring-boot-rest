@@ -75,7 +75,8 @@ public class HotelController {
 		}
 		HotelAmenity existing = hotelAmenityRepository.findOneByHotelAndAmenity(hotel, hotelAmenity.getAmenity());
 		if(existing != null) {
-			return ResponseEntity.badRequest().build();
+			//return ResponseEntity.badRequest().build();
+			hotelAmenity.setId(existing.getId());
 		}
 		hotelAmenity.setHotel(hotel);
 		hotel = hotelService.addAmenity(hotel, hotelAmenity);

@@ -3,7 +3,7 @@ package com.hotelapp.rest_app.services;
 import com.hotelapp.rest_app.models.Room;
 import com.hotelapp.rest_app.models.RoomAmenity;
 
-public interface RoomsService {
+public interface RoomService {
 	
 	public Room addRoom(Room room);
 
