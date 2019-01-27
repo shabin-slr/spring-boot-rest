@@ -20,7 +20,7 @@ public class Amenity implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "amenity_id")
 	private Long id;
-	
+
 	@Column(name = "short_desc", unique = true)
 	@NotNull
 	private String shortDescription;
@@ -51,6 +51,37 @@ public class Amenity implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((shortDescription == null) ? 0 : shortDescription.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Amenity other = (Amenity) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (shortDescription == null) {
+			if (other.shortDescription != null)
+				return false;
+		} else if (!shortDescription.equals(other.shortDescription))
+			return false;
+		return true;
 	}
 
 }

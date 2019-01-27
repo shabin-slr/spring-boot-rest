@@ -10,4 +10,6 @@ import com.hotelapp.rest_app.models.Room;
 public interface RoomRepository extends PagingAndSortingRepository<Room,Long>{
 	
 	List<Room> findByHotel(Hotel hotel);
+
+	Room findOneById(Long roomId);
 }
